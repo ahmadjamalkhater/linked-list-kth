@@ -10,9 +10,16 @@
             ll.Head.Next.Next = new Node(8);
             ll.Head.Next.Next.Next = new Node(2);
 
-            Console.WriteLine(ll.KthFromEnd(0));  // Output: 2
-            Console.WriteLine(ll.KthFromEnd(2));  // Output: 3
-
+            Node middleNode = ll.FindMiddleNode();
+            if (middleNode != null)
+            {
+                int value = middleNode.Value;
+                Console.WriteLine("Middle node value: " + value);
+            }
+            else
+            {
+                Console.WriteLine("The list is empty.");
+            }
         }
     }
 }

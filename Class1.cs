@@ -37,7 +37,6 @@ namespace linked_list_kth
             Node slowPtr = Head;
             Node fastPtr = Head;
 
-            // Move the fast pointer k nodes ahead of the slow pointer
             for (int i = 0; i < k; i++)
             {
                 if (fastPtr.Next != null)
@@ -50,7 +49,6 @@ namespace linked_list_kth
                 }
             }
 
-            // Move both pointers until the fast pointer reaches the end
             while (fastPtr.Next != null)
             {
                 slowPtr = slowPtr.Next;
@@ -58,6 +56,25 @@ namespace linked_list_kth
             }
 
             return slowPtr.Value;
+        }
+
+        public Node FindMiddleNode()
+        {
+            if (Head == null)
+            {
+                return null;
+            }
+
+            Node slowPtr = Head;
+            Node fastPtr = Head;
+
+            while (fastPtr != null && fastPtr.Next != null)
+            {
+                slowPtr = slowPtr.Next;
+                fastPtr = fastPtr.Next.Next;
+            }
+
+            return slowPtr;
         }
     }
 
